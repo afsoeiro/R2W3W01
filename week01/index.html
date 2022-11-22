@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RTW3 - Week 01 - Develop an NFT Contract</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../navbar.css">
+    <script src="Strings.js" defer></script>
+    <script src="view.js" defer></script>
+    <script src="FileUtils.js" defer></script>
+    <script src="WalletPlug.js" defer></script>
+    <script src="SmartPlug.js" defer></script>
+    <script src="controller.js" defer></script>
+    <script src="../navbarbuilder.js" defer></script>
+    <style>
+    body {
+      padding: 1rem;
+    }
+    .uninstalledWalletButton { background-color: #f44336; }
+    .disconnectedWalletButton { background-color: #e7e7e7; color:black; }
+    .connectedWalletButton {background-color: #008CBA;}
+    </style>
+    </head>
+    <body>
+      <span id="navbarInputInfo" style="display: none;"
+>initnavbar
+brand|https://afos.ml|../logo.png|AFOS
+navbaritems
+dropdown|#|Road to Web 3
+dditem|#|Week 01
+dditem|#|Week 02
+dditem|#|Week 03
+dditem|#|Week 04
+dditem|#|Week 05
+dditem|#|Week 06
+dditem|#|Week 07
+dditem|#|Week 08
+dditem|#|Week 09
+dditem|#|Week 10
+enddropdown
+item|../labs/|Labs
+endnavbaritems
+navbarcontrols
+button|bConnection|btn btn-info navbar-btn float-right|buttonClicked(this.id)|Connect a wallet
+endnavbarcontrols
+</span>
+  
+    <div class="container">
+      <h1>Andre Soeiro's Web Portfolio</h1>
+      <p>You may navigate through my web portfolio through the Navigation Bar above.</p>
+      <p>Thank you for visiting this website. It should be updated often.</p>
+<hr>
+  <div id = "dSiteGreeting">
+    <h3 id="hWeek01">Road to Web 3 - Week 01</h3>
+    <h4 id="shWeek01">Develop an NFT Contract</h4>
+    <h3>
+      <hr>
+      <p align = "justify" id = "pGreeting">Greeting comes here.</p>
+      <hr>
+    </h3>
+  </div>
+  <span id = "sUnknownUser">
+    <p align = "center" id="pDisconnectedWarning">
+      To interact with the deployed smart contract, please connect a wallet.
+    </p>
+    </span>
+  <div id = "dLoggedUI" style = "display: none;">
+    <h4 id = "pMintedNFTResults"></h4>
+    <h4 align = "justify" id = "lMintedAmountResults">How many NFTs has the user minted?</h4>
+    <p align = "justify" id = "pMintedDeclaration">
+    </p>
+    <hr>
+      <div class="form-group">
+      <h4><label for="tiUserName" id="lUserName">
+        Set or change your user name:</label></h4>
+      <input
+       type="text"
+       id="tiUserName"
+       name="tiUserName"
+       class="form-control"
+       placeholder="new user name">
+      </div>
+      <button
+       id="bSetUserName"
+       onclick="buttonClicked(this.id)"
+       class="btn btn-info">
+        Set New Username
+        </button>
+        <hr>
+      <div id="dMintingOffer">
+        <h4><label id = "lMintingOffer">Want to mint another NFT?</label></h4>
+
+        <div class="form-group">  
+        <label for = "tiMetadataUrl" id="lMetadataUrl">
+          Enter the 'metadata.json' file url:
+        </label>
+        <input
+         type="text"
+         id="tiMetadataUrl"
+         name="tiMetadataUrl"
+         class="form-control"
+         placeholder="URL for metadata.json file">
+         </div> <!-- Form group -->
+        <div class="checkbox">
+          <label>
+            <input
+         type = "checkbox"
+         id = "cbEnterDestination"
+         name = "cbEnterDestination"
+         onchange = "controlChanged(this.id)"
+         > <span id="lEnterDestination">Specify a wallet destination</span>
+          </label>
+        </div> <!-- checkbox -->
+        <!--
+         <label id = "lEnterDestination" for="cbEnterDestination">
+          Select destination address for NFT
+        </label>-->
+        <div class="form-group"> 
+        <span id="sMintTo" style="display: none">
+          <label for="tiMintTo" id="lMintTo">Mint NFT to:</label>
+          <input
+           type="text"
+           id="tiMintTo"
+           name="tiMintTo"
+           class="form-control"
+           placeholder="enter ethereum address here"><br />
+        </span>
+         <button
+          id="bMint"
+          onclick="buttonClicked(this.id)"
+          class="btn btn-info"> <!-- class="right"> -->
+          Mint NFT
+          </button>
+        </div>
+      </div>
+      </div>
+  </div> <!-- loggedUI -->
+<script>
+</script>
+</body>
+</html>

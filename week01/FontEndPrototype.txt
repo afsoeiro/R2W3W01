@@ -1,0 +1,19 @@
+         0         0         0         0         0         0         0         0         0         1         1         1
+         1         2         3         4         5         6         7         8         9         0         1         2
+123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+                                                                                                           [bConnection]
+-<siteGreetingDiv-
+-headerWeek01-
+-subHeaderWeek01-
+-<greetingParagraph- -greetingPart01- -greetingVisitorId- -greetingPart02- -greetingParagraph>-
+-siteGreetingDiv>-
+-<unknownUserDiv-
+-disconnectedPlaceholder-
+-unknownUserDiv>-
+-<loggedUI-
+-setUsernameLabel- -userName- -setUserNameButton-
+-setUserNameResults-
+-getMintedAmountResults-
+-mintedPart01Div- -mintedAmountDiv- -mintedPart02Div-
+-mintingOffer-
+-metadataLabel- -metadataUrl-

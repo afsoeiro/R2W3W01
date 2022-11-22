@@ -1,0 +1,10 @@
+[
+"function safeMint(address _to, string _uri)",
+"function selfMint(string _uri)",
+"function setUserName(string _userName)",
+"function getUserName() view returns (string)",
+"function getUserMintedTokens() view returns (uint[])",
+"function getTokenCap() view returns (uint)",
+"function getUserTokenCap() view returns (uint)",
+"function tokenURI(uint _tokenId) view returns (string)"
+]

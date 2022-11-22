@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- <script src="https://rawgit.com/ethereum/web3.js/develop/dist/web3.js" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script type="text/javascript" defer>
+        window.addEventListener('load', function () {
+            if (typeof web3 !== 'undefined') {
+                console.log('Web3 Detected! ' + web3.currentProvider.constructor.name);
+                window.web3 = new Web3(web3.currentProvider);
+            } else {
+                console.log('No Web3 Detected... using HTTP Provider');
+                window.web3 = new Web3(new Web3.providers.HttpProvider("https://goerli.infura.io/v3/034ecc36538b49bb89c3a61e8466495a"));
+            }
+        });
+        function getBalance() {
+            var address, wei, balance;
+            address = document.getElementById("address").value;
+            try {
+                web3.eth.getBalance(address, function (error, wei) {
+                    if (!error) {
+                        var balance = wei / 10 ** 18;//web3.fromWei(wei, 'ether');
+                        document.getElementById("output").innerHTML = balance + " GöETH";
+				fetchWalletStatus();
+				//document.getElementById("accountOutput").innerHTML = fetchWalletStatus();
+                    }
+                });
+            } catch (err) {
+                document.getElementById("output").innerHTML = err;
+            }
+        }
+        function fetchWalletStatus() { // FLAG - check after 'web3'.
+    		if(typeof window.ethereum === 'undefined') // We don't even have a wallet installed, so...
+        		{ document.getElementById("accountOutput").innerHTML = "No wallet installed"; return;}
+    		    web3.eth.getAccounts(function (error, response) {
+        		    if(!error) {
+            		    document.getElementById("accountOutput").innerHTML = "Connected";
+        		    }
+    	  	    });    
+    		if (accounts.length) {
+        		//alert("A wallet is connected at the address " + accounts + ".");
+        		return "ConnectedOutsider";
+    		}	
+		//No wallet is connected at this time.
+		return "Disconnected";
+	}
+    </script>
+</head>
+<body>
+    <h1>ETH Balance Fetcher</h1>
+    <p>Enter your Ethereum Address:</p>
+    <input type="text" size="50" id="address" />
+    <button type="button" onClick="getBalance()">Get Balance</button>
+    <br />
+    <br />
+    <div id="output"></div>
+    <br />
+    <br />
+    <div id="accountOutput"></div>
+</body>
+</html>
